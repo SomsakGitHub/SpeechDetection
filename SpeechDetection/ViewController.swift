@@ -9,30 +9,45 @@ import UIKit
 import Speech
 
 class ViewController: UIViewController, SFSpeechRecognizerDelegate {
-
-    //MARK: - OUTLET PROPERTIES
-       @IBOutlet weak var lb_speech: UILabel!
-       @IBOutlet weak var view_color: UIView!
-       @IBOutlet weak var btn_start: UIButton!
-       
-       //MARK: - Local Properties
-       let audioEngine = AVAudioEngine()
-       let speechReconizer : SFSpeechRecognizer? = SFSpeechRecognizer()
-       let request = SFSpeechAudioBufferRecognitionRequest()
-       var task : SFSpeechRecognitionTask!
-       var isStart : Bool = false
     
-    @IBAction func btn_start_stop(_ sender: Any) {
+    //MARK: - OUTLET PROPERTIES
+    @IBOutlet weak var startStopButton: UIButton!
+    
+    //MARK: - Local Properties
+    let audioEngine = AVAudioEngine()
+    let speechReconizer : SFSpeechRecognizer? = SFSpeechRecognizer()
+    let request = SFSpeechAudioBufferRecognitionRequest()
+    var task : SFSpeechRecognitionTask!
+    var isStart : Bool = false
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        //Looks for single or multiple taps.
+        let tap = UITapGestureRecognizer(target: self, action: #selector(UIInputViewController.dismissKeyboard))
+        
+        //Uncomment the line below if you want the tap not not interfere and cancel other interactions.
+        //tap.cancelsTouchesInView = false
+        view.addGestureRecognizer(tap)
+    }
+    
+    //Calls this function when the tap is recognized.
+    @objc func dismissKeyboard() {
+        //Causes the view (or one of its embedded text fields) to resign the first responder status.
+        view.endEditing(true)
+    }
+    
+    @IBAction func startStopTouch(_ sender: Any) {
         //MARK:- Coding for start and stop sppech recognization...!
         isStart = !isStart
         if isStart {
             startSpeechRecognization()
-            btn_start.setTitle("STOP", for: .normal)
-            btn_start.backgroundColor = .systemGreen
+            startStopButton.setTitle("STOP", for: .normal)
+            startStopButton.backgroundColor = .systemGreen
         }else {
             cancelSpeechRecognization()
-            btn_start.setTitle("START", for: .normal)
-            btn_start.backgroundColor = .systemOrange
+            startStopButton.setTitle("START", for: .normal)
+            startStopButton.backgroundColor = .systemOrange
         }
     }
     
@@ -45,6 +60,7 @@ class ViewController: UIViewController, SFSpeechRecognizerDelegate {
         }
         
         audioEngine.prepare()
+        
         do {
             try audioEngine.start()
         } catch let error {
@@ -72,8 +88,6 @@ class ViewController: UIViewController, SFSpeechRecognizerDelegate {
             
             let message = response.bestTranscription.formattedString
             print("Message : \(message)")
-            self.lb_speech.text = message
-            
             
             var lastString: String = ""
             for segment in response.bestTranscription.segments {
@@ -82,15 +96,15 @@ class ViewController: UIViewController, SFSpeechRecognizerDelegate {
             }
             
             if lastString == "red" {
-                self.view_color.backgroundColor = .systemRed
+
             } else if lastString.elementsEqual("green") {
-                self.view_color.backgroundColor = .systemGreen
+
             } else if lastString.elementsEqual("pink") {
-                self.view_color.backgroundColor = .systemPink
+
             } else if lastString.elementsEqual("blue") {
-                self.view_color.backgroundColor = .systemBlue
+
             } else if lastString.elementsEqual("black") {
-                self.view_color.backgroundColor = .black
+
             }
             
             
@@ -98,20 +112,20 @@ class ViewController: UIViewController, SFSpeechRecognizerDelegate {
     }
     
     //MARK: UPDATED FUNCTION
-
-        func cancelSpeechRecognization() {
-            task.finish()
-            task.cancel()
-            task = nil
-            
-            request.endAudio()
-            audioEngine.stop()
-            //audioEngine.inputNode.removeTap(onBus: 0)
-            
-            //MARK: UPDATED
-            if audioEngine.inputNode.numberOfInputs > 0 {
-                audioEngine.inputNode.removeTap(onBus: 0)
-            }
+    
+    func cancelSpeechRecognization() {
+        task.finish()
+        task.cancel()
+        task = nil
+        
+        request.endAudio()
+        audioEngine.stop()
+        //audioEngine.inputNode.removeTap(onBus: 0)
+        
+        //MARK: UPDATED
+        if audioEngine.inputNode.numberOfInputs > 0 {
+            audioEngine.inputNode.removeTap(onBus: 0)
         }
+    }
 }
 

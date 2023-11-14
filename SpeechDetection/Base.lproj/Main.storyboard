@@ -16,53 +16,54 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Ns-cX-Qs0">
-                                <rect key="frame" x="145.66666666666666" y="122.66666666666669" width="102" height="40"/>
-                                <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="20"/>
-                                <state key="normal" title="Start / Stop">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wrV-J0-IDy">
+                                <rect key="frame" x="39.333333333333343" y="743" width="314.33333333333326" height="35"/>
+                                <color key="backgroundColor" systemColor="systemGreenColor"/>
+                                <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Start"/>
                                 <connections>
-                                    <action selector="btn_start_stop:" destination="BYZ-38-t0r" eventType="touchUpInside" id="YfO-lI-BjG"/>
+                                    <action selector="startStopTouch:" destination="BYZ-38-t0r" eventType="touchUpInside" id="sze-KD-s08"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="111111" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="10" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6qf-qn-odK">
-                                <rect key="frame" x="0.0" y="182.66666666666666" width="393" height="99.999999999999972"/>
-                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hLY-uV-3qn">
+                                <rect key="frame" x="39.333333333333343" y="99" width="314.33333333333326" height="40"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="100" id="ZcR-oj-6w2"/>
+                                    <constraint firstAttribute="height" constant="40" id="j1D-uZ-TEA"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jk8-R2-QSN">
-                                <rect key="frame" x="84" y="685" width="225" height="133"/>
-                                <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="lastname" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xS0-sT-oxm">
+                                <rect key="frame" x="39.333333333333343" y="179" width="314.33333333333326" height="40"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="133" id="SFN-kE-40r"/>
-                                    <constraint firstAttribute="width" constant="225" id="eY4-dX-vnX"/>
+                                    <constraint firstAttribute="height" constant="40" id="Iw9-Za-ZaC"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="40" id="wiv-yJ-Eg0"/>
                                 </constraints>
-                            </view>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="9Ns-cX-Qs0" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="CvI-pS-hpN"/>
-                            <constraint firstItem="6qf-qn-odK" firstAttribute="top" secondItem="9Ns-cX-Qs0" secondAttribute="bottom" constant="20" id="DhN-Yq-TwD"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="jk8-R2-QSN" secondAttribute="bottom" id="EuS-TC-yJ3"/>
-                            <constraint firstItem="6qf-qn-odK" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="IvL-Oe-Yqw"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="6qf-qn-odK" secondAttribute="trailing" id="O57-ul-Ijf"/>
-                            <constraint firstItem="9Ns-cX-Qs0" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="63.670000000000002" id="YPY-ce-Fgk"/>
-                            <constraint firstItem="6qf-qn-odK" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="tXa-Vh-qr2"/>
-                            <constraint firstItem="jk8-R2-QSN" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="v17-nG-tzY"/>
+                            <constraint firstItem="hLY-uV-3qn" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.8" id="3JZ-D7-JKc"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="wrV-J0-IDy" secondAttribute="bottom" constant="40" id="E3a-dn-vUu"/>
+                            <constraint firstItem="hLY-uV-3qn" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="40" id="Gln-Ln-G5e"/>
+                            <constraint firstItem="xS0-sT-oxm" firstAttribute="top" secondItem="hLY-uV-3qn" secondAttribute="bottom" constant="40" id="PpW-WQ-TCh"/>
+                            <constraint firstItem="hLY-uV-3qn" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="RbS-Xe-Aeg"/>
+                            <constraint firstItem="wrV-J0-IDy" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.8" id="imv-B5-krX"/>
+                            <constraint firstItem="xS0-sT-oxm" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="j1Q-Ls-Z3G"/>
+                            <constraint firstItem="wrV-J0-IDy" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="l8r-sd-fC3"/>
+                            <constraint firstItem="xS0-sT-oxm" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.8" id="zsl-mK-Rxe"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="btn_start" destination="9Ns-cX-Qs0" id="kSd-0D-Tb7"/>
-                        <outlet property="lb_speech" destination="6qf-qn-odK" id="FWu-JA-NXn"/>
-                        <outlet property="view_color" destination="jk8-R2-QSN" id="KtW-aD-eKU"/>
+                        <outlet property="startStopButton" destination="wrV-J0-IDy" id="IHz-5x-0zH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -73,6 +74,9 @@
     <resources>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGreenColor">
+            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
